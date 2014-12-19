@@ -48,7 +48,7 @@
 #define AW_3_BYTES 0x01
 #define AW_4_BYTES 0x02
 #define AW_5_BYTES 0x03
-#define set_addr_width(b, aw) b = (aw & 0x03)
+#define set_AW(b, aw) b = (aw & 0x03)
 
 // Setup retries
 
@@ -85,11 +85,11 @@
 #define ARC_13 0x0D
 #define ARC_14 0x0E
 #define ARC_15 0x0F
-#define set_retrans_delay(b, rd) b = (b & 0x0F) | (rd << 4)
-#define set_retrans_count(b, rc) b = (b & 0xF0) | (rc & 0xF0)
+#define set_ARD(b, rd) b = (b & 0x0F) | (rd << 4)
+#define set_ARC(b, rc) b = (b & 0xF0) | (rc & 0xF0)
 
 #define RF_CH 0x05
-#define set_rf_channel(b, ch) b = (ch & 0x7F)
+#define set_RF_CH(b, ch) b = (ch & 0x7F)
 
 #define RF_SETUP 0x06
 #define CONT_WAVE  7
@@ -100,18 +100,18 @@
 #define RF_PWR_M_12_DB 0x01
 #define RF_PWR_M_6_DB  0x02
 #define RF_PWR_0_DB    0x02
-#define set_rf_pwr(b, pwr) b = ((b & 0xF8) | (pwr & 0xF8)) >> 1
+#define set_RF_PWR(b, pwr) b = ((b & 0xF8) | (pwr & 0xF8)) >> 1
 
 #define STATUS 0x07
 #define RX_DR   6
 #define TX_DS   5
 #define MAX_RT  4
 #define TX_FULL 0
-#define get_rx_p_no(b) (b & 0x0E) >> 1
+#define get_RX_P_NO(b) (b & 0x0E) >> 1
 
 #define OBSERVE_TX 0x08
-#define get_plos_cnt(b) (b & 0xF0) >> 4
-#define get_arc_cnt(b) (b & 0x0F)
+#define get_PLOS_CNT(b) (b & 0xF0) >> 4
+#define get_ARC_CNT(b) (b & 0x0F)
 
 #define RPD 0x09
 
