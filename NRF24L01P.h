@@ -1,4 +1,21 @@
 /**
+ * SPI commands
+ */
+
+#define make_R_REGISTER(reg) (reg & 0x1F)
+#define make_W_REGISTER(reg) (0x20 | (reg & 0x1F))
+#define make_W_ACK_PAYLOAD(pipe) (0xA8 | (pipe & 0x07))
+
+#define R_RX_PAYLOAD       0x61
+#define W_TX_PAYLOAD       0xA0
+#define FLUSH_TX           0xE1
+#define FLUSH_RX           0xE2
+#define REUSE_TX_PL        0xE3
+#define R_RX_PL_WID        0x60
+#define W_TX_PAYLOAD_NOACK 0xB0
+#define NOP                0x00
+
+/**
  * Register mappings and utility macros for the NRF24L01+
  */
 
